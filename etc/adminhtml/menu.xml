@@ -1,0 +1,19 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Lukas_QuickOrder::parent"
+             title="Lukas"
+             module="Lukas_QuickOrder"
+             sortOrder="100"
+             resource="Lukas_QuickOrder::all"
+             parent="Magento_Sales::sales" />
+
+        <add id="Lukas_QuickOrder::index"
+             title="Quick Order"
+             module="Lukas_QuickOrder"
+             sortOrder="10"
+             action="quick/index/index"
+             resource="Lukas_QuickOrder::grid"
+             parent="Lukas_QuickOrder::parent"/>
+    </menu>
+</config>
