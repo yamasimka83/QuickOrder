@@ -1,27 +1,86 @@
 <?xml version="1.0"?>
-<!--
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
+
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
 
     <table name="quick_order" resource="default" engine="innodb"
        comment="Quick Order Table">
-        <column xsi:type="int" name="order_id" padding="11" unsigned="false" nullable="false" identity="true" comment="Order ID"/>
-        <column xsi:type="varchar" name="sku" length="255" nullable="false" default="" comment="Product Sku"/>
-        <column xsi:type="varchar" name="name" length="255" nullable="false" default="" comment="Customer Name"/>
-        <column xsi:type="int" name="phone" padding="20" unsigned="true" nullable="false" identity="false" default="0" comment="Customer Phone"/>
-        <column xsi:type="int" name="qty" padding="11" unsigned="true" nullable="false" identity="false" default="1" comment="Qty"/>
-        <column xsi:type="varchar" name="email" length="255" nullable="true" comment="Customer Email"/>
-        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Quick order created at"/>
-        <column xsi:type="datetime" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Quick order updated at"/>
+        <column
+            xsi:type="int"
+                name="order_id"
+                padding="11"
+                unsigned="false"
+                nullable="false"
+                identity="true"
+                comment="Order ID"
+        />
+        <column
+            xsi:type="varchar"
+                name="sku"
+                length="255"
+                nullable="false"
+                default=""
+                comment="Product Sku"
+        />
+        <column
+            xsi:type="varchar"
+                name="name"
+                length="255"
+                nullable="false"
+                default=""
+                comment="Customer Name"
+        />
+        <column
+            xsi:type="varchar"
+                name="phone"
+                length="255"
+                nullable="false"
+                default=""
+                comment="Customer Phone"
+        />
+        <column
+            xsi:type="int"
+                name="qty"
+                padding="11"
+                unsigned="true"
+                nullable="false"
+                identity="false"
+                default="1"
+                comment="Qty"
+        />
+        <column
+            xsi:type="varchar"
+                name="email"
+                length="255"
+                nullable="true"
+                comment="Customer Email"
+        />
+        <column
+            xsi:type="varchar"
+            name="comment"
+            length="255"
+            nullable="true"
+            comment="Comment"
+        />
+        <column
+            xsi:type="datetime"
+                name="created_at"
+                on_update="false"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+                comment="Quick order created at"
+        />
+        <column
+            xsi:type="datetime"
+                name="updated_at"
+                on_update="true"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+                comment="Quick order updated at"
+        />
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="order_id"/>
         </constraint>
     </table>
 </schema>
 
-<!--Sku продукта, Name, Phone, Email, Create At, Update At и  Status -->
