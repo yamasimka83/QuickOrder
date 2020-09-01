@@ -3,10 +3,10 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="product.info.addtocart">
-            <block class="Magento\Framework\View\Element\Template" template="Lukas_QuickOrder::quick_order_button.phtml"/>
+            <block class="Magento\Catalog\Block\Product\AbstractProduct" template="Lukas_QuickOrder::quick_order_button.phtml"/>
         </referenceBlock>
         <referenceBlock name="product.info.addtocart.additional">
-            <block class="Magento\Framework\View\Element\Template" template="Lukas_QuickOrder::quick_order_button.phtml"/>
+            <block class="Magento\Catalog\Block\Product\AbstractProduct" template="Lukas_QuickOrder::quick_order_button.phtml"/>
         </referenceBlock>
     </body>
 </page>

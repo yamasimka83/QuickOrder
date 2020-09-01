@@ -1,8 +1,23 @@
 <div data-mage-init='{"quick_order_popup": {}}'>
-    <button type="button" class="action primary tocart" id="quick_order_button">Click Me</button>
+    <button type="button" class="action primary tocart" id="quick_order_button">Quick Order</button>
 </div>
 
 
 <div id="quick_order_form" >
-    yes I am the modal.
+    <form method="post" id="form-validate">
+
+            <label>Name<input type="text" id="name"></label>
+
+            <label>Phone<input type="text" id="phone"></label>
+
+            <label>Email<input type="email" id="email"></label>
+
+            <label>Qty<input type="text" id="qty" value="1"></label>
+
+            <label>Comment</label>
+            <textarea id="comment"></textarea>
+
+            <input type="hidden" id="sku" value="<?= $this->getProduct()->getSku(); ?>">
+
+    </form>
 </div>
