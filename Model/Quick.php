@@ -156,4 +156,23 @@ class Quick extends AbstractModel implements QuickInterface
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->getData('status');
+    }
+
+    /**
+     * @param string $status
+     * @return $this|QuickInterface
+     */
+    public function setStatus(string $status): QuickInterface
+    {
+        $this->setData('status', $status);
+
+        return $this;
+    }
 }

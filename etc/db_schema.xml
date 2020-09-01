@@ -63,6 +63,14 @@
             comment="Comment"
         />
         <column
+            xsi:type="varchar"
+            name="status"
+            length="255"
+            nullable="false"
+            default="Pending"
+            comment="Comment"
+        />
+        <column
             xsi:type="datetime"
                 name="created_at"
                 on_update="false"

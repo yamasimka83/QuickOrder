@@ -83,6 +83,17 @@ interface QuickInterface
     /**
      * @return string
      */
+    public function getStatus() : string;
+
+    /**
+     * @param string $status
+     * @return QuickInterface
+     */
+    public function setStatus(string $status) : QuickInterface;
+
+    /**
+     * @return string
+     */
     public function getCreatedAt() : string;
 
     /**
