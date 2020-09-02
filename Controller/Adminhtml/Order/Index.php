@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Lukas\QuickOrder\Controller\Adminhtml\Index;
+namespace Lukas\QuickOrder\Controller\Adminhtml\Order;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;

@@ -5,6 +5,16 @@
                 type="Lukas\QuickOrder\Model\Quick"/>
     <preference for="Lukas\QuickOrder\Api\QuickRepositoryInterface"
                 type="Lukas\QuickOrder\Repository\QuickRepository"/>
-    <preference for="Rlab\Gift\Api\Model\Data\GiftSearchResultInterface"
+    <preference for="Lukas\QuickOrder\Api\Model\Data\GiftSearchResultInterface"
                 type="Magento\Framework\Api\Search\SearchResult"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="quick_order_grid_listing_data_source" xsi:type="string">
+                    Lukas\QuickOrder\Model\ResourceModel\Quick\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
