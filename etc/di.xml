@@ -1,18 +1,31 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Lukas\QuickOrder\Api\Data\QuickInterface"
-                type="Lukas\QuickOrder\Model\Quick"/>
-    <preference for="Lukas\QuickOrder\Api\QuickRepositoryInterface"
-                type="Lukas\QuickOrder\Repository\QuickRepository"/>
-    <preference for="Lukas\QuickOrder\Api\Model\Data\GiftSearchResultInterface"
+    <preference for="Lukas\QuickOrder\Api\Data\QuickOrderInterface"
+                type="Lukas\QuickOrder\Model\QuickOrder"/>
+    <preference for="Lukas\QuickOrder\Api\QuickOrderRepositoryInterface"
+                type="Lukas\QuickOrder\Repository\QuickOrderRepository"/>
+    <preference for="Lukas\QuickOrder\Api\Model\Data\QuickOrderSearchResultInterface"
+                type="Magento\Framework\Api\Search\SearchResult"/>
+    <preference for="Lukas\QuickOrder\Api\Data\QuickStatusInterface"
+                type="Lukas\QuickOrder\Model\QuickStatus"/>
+    <preference for="Lukas\QuickOrder\Api\QuickStatusRepositoryInterface"
+                type="Lukas\QuickOrder\Repository\QuickStatusRepository"/>
+    <preference for="Lukas\QuickOrder\Api\Model\Data\QuickStatusSearchResultInterface"
                 type="Magento\Framework\Api\Search\SearchResult"/>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="quick_order_grid_listing_data_source" xsi:type="string">
-                    Lukas\QuickOrder\Model\ResourceModel\Quick\Grid\Collection
+                    Lukas\QuickOrder\Model\ResourceModel\QuickOrder\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="quick_status_grid_listing_data_source" xsi:type="string">
+                    Lukas\QuickOrder\Model\ResourceModel\QuickStatus\Grid\Collection
                 </item>
             </argument>
         </arguments>

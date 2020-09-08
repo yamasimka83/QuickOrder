@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Lukas\QuickOrder\Controller\Adminhtml\Order;
+namespace Lukas\QuickOrder\Controller\Adminhtml\Status;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -14,7 +14,7 @@ use Magento\Framework\View\Result\PageFactory;
  */
 class Index extends Action implements HttpGetActionInterface
 {
-    public const MENU_ID = 'Lukas_QuickOrder::grid';
+    public const MENU_ID = 'Lukas_QuickOrder::status';
 
     /**
      * @var PageFactory
@@ -41,7 +41,7 @@ class Index extends Action implements HttpGetActionInterface
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Lukas_QuickOrder::grid');
+        return $this->_authorization->isAllowed('Lukas_QuickOrder::status');
     }
 
     /**

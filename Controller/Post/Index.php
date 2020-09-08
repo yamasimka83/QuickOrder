@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Lukas\QuickOrder\Controller\Post;
 
-use Lukas\QuickOrder\Api\Data\QuickInterfaceFactory;
-use Lukas\QuickOrder\Api\QuickRepositoryInterface;
+use Lukas\QuickOrder\Api\Data\QuickOrderInterfaceFactory;
+use Lukas\QuickOrder\Api\QuickOrderRepositoryInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Controller\Result\JsonFactory;
@@ -28,33 +28,33 @@ class Index implements HttpPostActionInterface
     private $request;
 
     /**
-     * @var QuickInterfaceFactory
+     * @var QuickOrderInterfaceFactory
      */
-    private $quickFactory;
+    private $quickOrderFactory;
 
     /**
-     * @var QuickRepositoryInterface
+     * @var QuickOrderRepositoryInterface
      */
-    private $quickRepository;
+    private $quickOrderRepository;
 
     /**
      * Collect constructor.
      *
      * @param JsonFactory $resultJsonFactory
      * @param RequestInterface $request
-     * @param QuickInterfaceFactory $quickFactory
-     * @param QuickRepositoryInterface $quickRepository
+     * @param QuickOrderInterfaceFactory $quickOrderFactory
+     * @param QuickOrderRepositoryInterface $quickOrderRepository
      */
     public function __construct(
         JsonFactory $resultJsonFactory,
         RequestInterface $request,
-        QuickInterfaceFactory $quickFactory,
-        QuickRepositoryInterface $quickRepository
+        QuickOrderInterfaceFactory $quickOrderFactory,
+        QuickOrderRepositoryInterface $quickOrderRepository
     ) {
         $this->resultJsonFactory = $resultJsonFactory;
         $this->request = $request;
-        $this->quickFactory = $quickFactory;
-        $this->quickRepository = $quickRepository;
+        $this->quickOrderFactory = $quickOrderFactory;
+        $this->quickOrderRepository = $quickOrderRepository;
     }
 
     /**
@@ -75,16 +75,15 @@ class Index implements HttpPostActionInterface
             $qty     = $this->request->getParam('qty');
             $comment = $this->request->getParam('comment');
 
-            $order = $this->quickFactory->create();
+            $order = $this->quickOrderFactory->create();
             $order->setName($name);
             $order->setEmail($email);
             $order->setSku($sku);
             $order->setPhone($phone);
             $order->setQty((int)$qty);
             $order->setComment($comment);
-            $this->quickRepository->save($order);
+            $this->quickOrderRepository->save($order);
 
-//            $result->setData($order);
         } catch (\Exception $exception) {
             return $result->setData($exception->getMessage());
         }

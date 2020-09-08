@@ -6,10 +6,10 @@ namespace Lukas\QuickOrder\Api\Data;
 use Magento\Framework\Api\Search\SearchResultInterface;
 
 /**
- * Interface QuickSearchResultInterface
+ * Interface QuickOrderSearchResultInterface
  * @package Lukas\QuickOrder\Api\Data
  */
-interface QuickSearchResultInterface extends SearchResultInterface
+interface QuickOrderSearchResultInterface extends SearchResultInterface
 {
 
 }

@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace Lukas\QuickOrder\Model\ResourceModel\Quick\Grid;
+namespace Lukas\QuickOrder\Model\ResourceModel\QuickStatus\Grid;
 
-use Lukas\QuickOrder\Model\ResourceModel\Quick as ResourceModel;
-use Lukas\QuickOrder\Model\ResourceModel\Quick\Collection as GiftCollection;
+use Lukas\QuickOrder\Model\ResourceModel\QuickStatus as ResourceModel;
+use Lukas\QuickOrder\Model\ResourceModel\QuickStatus\Collection as QuickCollection;
 use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\View\Element\UiComponent\DataProvider\Document;
 
 /**
  * Class Collection
- * @package Lukas\QuickOrder\Model\ResourceModel\Quick\Grid
+ * @package Lukas\QuickOrder\Model\ResourceModel\QuickStatus\Grid
  */
-class Collection extends GiftCollection implements SearchResultInterface
+class Collection extends QuickCollection implements SearchResultInterface
 {
     protected $aggregations;
 

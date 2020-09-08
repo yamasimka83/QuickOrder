@@ -4,7 +4,8 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Lukas_QuickOrder::all" title="Quick Order" translate="title" sortOrder="10">
-                    <resource id="Lukas_QuickOrder::grid" title="Grid" translate="title" sortOrder="20"/>
+                    <resource id="Lukas_QuickOrder::grid" title="Grid" translate="title" sortOrder="10"/>
+                    <resource id="Lukas_QuickOrder::status" title="Grid" translate="title" sortOrder="20"/>
                 </resource>
             </resource>
         </resources>

@@ -3,15 +3,15 @@ declare(strict_types=1);
 
 namespace Lukas\QuickOrder\Model;
 
-use Lukas\QuickOrder\Api\Data\QuickInterface;
-use Lukas\QuickOrder\Model\ResourceModel\Quick as ResourceModel;
+use Lukas\QuickOrder\Api\Data\QuickOrderInterface;
+use Lukas\QuickOrder\Model\ResourceModel\QuickOrder as ResourceModel;
 use Magento\Framework\Model\AbstractModel;
 
 /**
- * Class Quick
+ * Class QuickOrder
  * @package Lukas\QuickOrder\Model
  */
-class Quick extends AbstractModel implements QuickInterface
+class QuickOrder extends AbstractModel implements QuickOrderInterface
 {
 
     protected function _construct()
@@ -37,9 +37,9 @@ class Quick extends AbstractModel implements QuickInterface
 
     /**
      * @param string $sku
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setSku(string $sku): QuickInterface
+    public function setSku(string $sku): QuickOrderInterface
     {
         $this->setData('sku', $sku);
 
@@ -56,9 +56,9 @@ class Quick extends AbstractModel implements QuickInterface
 
     /**
      * @param string $name
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setName(string $name): QuickInterface
+    public function setName(string $name): QuickOrderInterface
     {
         $this->setData('name', $name);
 
@@ -75,9 +75,9 @@ class Quick extends AbstractModel implements QuickInterface
 
     /**
      * @param string $email
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setEmail(string $email): QuickInterface
+    public function setEmail(string $email): QuickOrderInterface
     {
         $this->setData('email', $email);
 
@@ -94,9 +94,9 @@ class Quick extends AbstractModel implements QuickInterface
 
     /**
      * @param string $phone
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setPhone(string $phone): QuickInterface
+    public function setPhone(string $phone): QuickOrderInterface
     {
         $this->setData('phone', $phone);
 
@@ -113,9 +113,9 @@ class Quick extends AbstractModel implements QuickInterface
 
     /**
      * @param int $qty
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setQty(int $qty): QuickInterface
+    public function setQty(int $qty): QuickOrderInterface
     {
         $this->setData('qty', $qty);
 
@@ -148,9 +148,9 @@ class Quick extends AbstractModel implements QuickInterface
 
     /**
      * @param string $comment
-     * @return $this|QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setComment(string $comment): QuickInterface
+    public function setComment(string $comment): QuickOrderInterface
     {
         $this->setData('comment', $comment);
 
@@ -158,20 +158,20 @@ class Quick extends AbstractModel implements QuickInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getStatus(): string
+    public function getStatusId(): int
     {
         return $this->getData('status');
     }
 
     /**
-     * @param string $status
-     * @return $this|QuickInterface
+     * @param int $statusId
+     * @return QuickOrderInterface
      */
-    public function setStatus(string $status): QuickInterface
+    public function setStatusId(int $statusId): QuickOrderInterface
     {
-        $this->setData('status', $status);
+        $this->setData('status', $statusId);
 
         return $this;
     }

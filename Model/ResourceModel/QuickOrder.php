@@ -6,10 +6,10 @@ namespace Lukas\QuickOrder\Model\ResourceModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 /**
- * Class Quick
+ * Class QuickOrder
  * @package Lukas\QuickOrder\Model\ResourceModel
  */
-class Quick extends AbstractDb
+class QuickOrder extends AbstractDb
 {
 
     protected function _construct()

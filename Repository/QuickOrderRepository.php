@@ -4,13 +4,13 @@ declare(strict_types=1);
 namespace Lukas\QuickOrder\Repository;
 
 use Exception;
-use Lukas\QuickOrder\Api\Data\QuickInterface;
-use Lukas\QuickOrder\Api\Data\QuickInterfaceFactory;
-use Lukas\QuickOrder\Api\Data\QuickSearchResultInterface;
-use Lukas\QuickOrder\Api\Data\QuickSearchResultInterfaceFactory;
-use Lukas\QuickOrder\Api\QuickRepositoryInterface;
-use Lukas\QuickOrder\Model\ResourceModel\Quick as ResourceModel;
-use Lukas\QuickOrder\Model\ResourceModel\Quick\CollectionFactory;
+use Lukas\QuickOrder\Api\Data\QuickOrderInterface;
+use Lukas\QuickOrder\Api\Data\QuickOrderInterfaceFactory;
+use Lukas\QuickOrder\Api\Data\QuickOrderSearchResultInterface;
+use Lukas\QuickOrder\Api\Data\QuickOrderSearchResultInterfaceFactory;
+use Lukas\QuickOrder\Api\QuickOrderRepositoryInterface;
+use Lukas\QuickOrder\Model\ResourceModel\QuickOrder as ResourceModel;
+use Lukas\QuickOrder\Model\ResourceModel\QuickOrder\CollectionFactory;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
@@ -19,10 +19,10 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class QuickRepository
+ * Class QuickOrderRepository
  * @package Lukas\QuickOrder\Repository
  */
-class QuickRepository implements QuickRepositoryInterface
+class QuickOrderRepository implements QuickOrderRepositoryInterface
 {
 
     /**
@@ -31,7 +31,7 @@ class QuickRepository implements QuickRepositoryInterface
     private $resourceModel;
 
     /**
-     * @var QuickInterfaceFactory
+     * @var QuickOrderInterfaceFactory
      */
     private $modelFactory;
 
@@ -46,7 +46,7 @@ class QuickRepository implements QuickRepositoryInterface
     private $collectionProcessor;
 
     /**
-     * @var QuickSearchResultInterfaceFactory
+     * @var QuickOrderSearchResultInterfaceFactory
      */
     private $searchResultFactory;
 
@@ -58,22 +58,22 @@ class QuickRepository implements QuickRepositoryInterface
     /**
      * QuickRepository constructor.
      * @param ResourceModel $resourceModel
-     * @param QuickInterfaceFactory $quickInterfaceFactory
+     * @param QuickOrderInterfaceFactory $quickOrderInterfaceFactory
      * @param CollectionFactory $collectionFactory
-     * @param QuickSearchResultInterfaceFactory $searchResultFactory
+     * @param QuickOrderSearchResultInterfaceFactory $searchResultFactory
      * @param CollectionProcessorInterface $collectionProcessor
      * @param LoggerInterface $logger
      */
     public function __construct(
         ResourceModel $resourceModel,
-        QuickInterfaceFactory $quickInterfaceFactory,
+        QuickOrderInterfaceFactory $quickOrderInterfaceFactory,
         CollectionFactory $collectionFactory,
-        QuickSearchResultInterfaceFactory $searchResultFactory,
+        QuickOrderSearchResultInterfaceFactory $searchResultFactory,
         CollectionProcessorInterface $collectionProcessor,
         LoggerInterface $logger
     ) {
         $this->resourceModel        = $resourceModel;
-        $this->modelFactory         = $quickInterfaceFactory;
+        $this->modelFactory         = $quickOrderInterfaceFactory;
         $this->collectionFactory    = $collectionFactory;
         $this->searchResultFactory  = $searchResultFactory;
         $this->collectionProcessor  = $collectionProcessor;
@@ -82,10 +82,10 @@ class QuickRepository implements QuickRepositoryInterface
 
     /**
      * @param int $id
-     * @return QuickInterface
+     * @return QuickOrderInterface
      * @throws NoSuchEntityException
      */
-    public function getById(int $id): QuickInterface
+    public function getById(int $id): QuickOrderInterface
     {
         $model = $this->modelFactory->create();
 
@@ -100,9 +100,9 @@ class QuickRepository implements QuickRepositoryInterface
 
     /**
      * @param SearchCriteriaInterface $searchCriteria
-     * @return QuickSearchResultInterface
+     * @return QuickOrderSearchResultInterface
      */
-    public function getList(SearchCriteriaInterface $searchCriteria): QuickSearchResultInterface
+    public function getList(SearchCriteriaInterface $searchCriteria): QuickOrderSearchResultInterface
     {
         $collection = $this->collectionFactory->create();
 
@@ -118,11 +118,11 @@ class QuickRepository implements QuickRepositoryInterface
     }
 
     /**
-     * @param QuickInterface $order
-     * @return QuickInterface
+     * @param QuickOrderInterface $order
+     * @return QuickOrderInterface
      * @throws CouldNotSaveException
      */
-    public function save(QuickInterface $order): QuickInterface
+    public function save(QuickOrderInterface $order): QuickOrderInterface
     {
         try {
             $this->resourceModel->save($order);
@@ -135,11 +135,11 @@ class QuickRepository implements QuickRepositoryInterface
     }
 
     /**
-     * @param QuickInterface $order
-     * @return $this|QuickRepositoryInterface
+     * @param QuickOrderInterface $order
+     * @return QuickOrderRepositoryInterface
      * @throws CouldNotDeleteException
      */
-    public function delete(QuickInterface $order): QuickRepositoryInterface
+    public function delete(QuickOrderInterface $order): QuickOrderRepositoryInterface
     {
         try {
             $this->resourceModel->delete($order);
@@ -152,10 +152,10 @@ class QuickRepository implements QuickRepositoryInterface
 
     /**
      * @param int $id
-     * @return $this|QuickRepositoryInterface
+     * @return QuickOrderRepositoryInterface
      * @throws CouldNotDeleteException
      */
-    public function deleteById(int $id): QuickRepositoryInterface
+    public function deleteById(int $id): QuickOrderRepositoryInterface
     {
         try {
             $model = $this->getById($id);

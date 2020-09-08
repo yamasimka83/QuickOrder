@@ -4,10 +4,10 @@ declare(strict_types=1);
 namespace Lukas\QuickOrder\Api\Data;
 
 /**
- * Interface QuickInterface
+ * Interface QuickOrderInterface
  * @package Lukas\QuickOrder\Api\Data
  */
-interface QuickInterface
+interface QuickOrderInterface
 {
     /**
      * @return int
@@ -21,9 +21,9 @@ interface QuickInterface
 
     /**
      * @param string $sku
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setSku(string $sku) : QuickInterface;
+    public function setSku(string $sku) : QuickOrderInterface;
 
     /**
      * @return string
@@ -32,9 +32,9 @@ interface QuickInterface
 
     /**
      * @param string $name
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setName(string $name) : QuickInterface;
+    public function setName(string $name) : QuickOrderInterface;
 
     /**
      * @return string
@@ -43,9 +43,9 @@ interface QuickInterface
 
     /**
      * @param string $email
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setEmail(string $email) : QuickInterface;
+    public function setEmail(string $email) : QuickOrderInterface;
 
     /**
      * @return string
@@ -54,9 +54,9 @@ interface QuickInterface
 
     /**
      * @param string $phone
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setPhone(string $phone) : QuickInterface;
+    public function setPhone(string $phone) : QuickOrderInterface;
 
     /**
      * @return int
@@ -65,9 +65,9 @@ interface QuickInterface
 
     /**
      * @param int $qty
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setQty(int $qty) : QuickInterface;
+    public function setQty(int $qty) : QuickOrderInterface;
 
     /**
      * @return string
@@ -76,20 +76,20 @@ interface QuickInterface
 
     /**
      * @param string $comment
-     * @return QuickInterface
+     * @return QuickOrderInterface
      */
-    public function setComment(string $comment) : QuickInterface;
+    public function setComment(string $comment) : QuickOrderInterface;
 
     /**
-     * @return string
+     * @return int
      */
-    public function getStatus() : string;
+    public function getStatusId() : int;
 
     /**
-     * @param string $status
-     * @return QuickInterface
+     * @param int $statusId
+     * @return QuickOrderInterface
      */
-    public function setStatus(string $status) : QuickInterface;
+    public function setStatusId(int $statusId) : QuickOrderInterface;
 
     /**
      * @return string
